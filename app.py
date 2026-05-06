@@ -2,12 +2,31 @@ import streamlit as st
 import joblib
 import re
 import os
+import gdown
 
 st.set_page_config(page_title="PhishGuard", page_icon="🛡️", layout="wide")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "models", "ensemble_voting_classifier.joblib")
-VECTORIZER_PATH = os.path.join(BASE_DIR, "models", "vectorizer.joblib")
+
+MODEL_DIR = os.path.join(BASE_DIR, "model")
+os.makedirs(MODEL_DIR, exist_ok=True)
+
+MODEL_PATH = os.path.join(MODEL_DIR, "ensemble_voting_classifier.joblib")
+VECTORIZER_PATH = os.path.join(MODEL_DIR, "vectorizer.joblib")
+
+MODEL_URL = "https://drive.google.com/uc?id=1iV1Izr6tJKi_MssvVLgQSRf4jWXK2Xmq"
+VECTORIZER_URL = "https://drive.google.com/uc?id=1UggozsGUfIBoVUQjyGMhkWCcpOul58I_"
+
+try:
+    if not os.path.exists(MODEL_PATH):
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+
+    if not os.path.exists(VECTORIZER_PATH):
+        gdown.download(VECTORIZER_URL, VECTORIZER_PATH, quiet=False)
+
+except Exception as e:
+    st.error(f"Download failed: {e}")
+    st.stop()
 
 if "email" not in st.session_state:
     st.session_state.email = ""
