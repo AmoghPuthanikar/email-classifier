@@ -97,7 +97,7 @@ SPAM_EX = "Congratulations!!! You have won a FREE iPhone 15 Pro Max.\n\nClaim yo
 HAM_EX = "Hi Sarah,\n\nJust following up on our Tuesday meeting. I've attached the revised project timeline and Q2 budget breakdown.\n\nCould you review the milestones section?\n\nBest,\nMarcus"
 
 ABOUT_MD = (
-    "PhishGuard is an AI-powered email security tool that detects and classifies emails "
+    "PhishGuard is an email security tool that detects and classifies emails "
     "as Ham, Spam, or Phishing in real time. It uses an ensemble machine learning model "
     "combined with rule-based email scanning to improve detection accuracy for suspicious "
     "and malicious emails. Built using Python, scikit-learn, and Streamlit."
