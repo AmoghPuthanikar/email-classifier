@@ -1,20 +1,40 @@
 # PhishGuard: Email Threat Detection System
 
 PhishGuard is a machine learning-powered email threat detection application designed to classify emails into three categories in real-time:
+
 - **🟢 HAM (Legitimate)**
 - **🟠 SPAM (Unsolicited)**
 - **🔴 PHISHING (Threat)**
 
 It combines a trained **Ensemble Voting Classifier** with a **Heuristic Rule-Based Layer** to provide highly accurate predictions, particularly for borderline cases. The application features a sleek, dark-mode web interface built with **Streamlit**.
 
+## 🌐 Live Demo
+
+Try the deployed PhishGuard application here:
+
+👉 [PhishGuard Live App](https://email-classifier-g9h.streamlit.app/)
+
+### Features
+
+- Real-time email classification
+- Detects Ham, Spam, and Phishing emails
+- Ensemble ML-based prediction system
+- Rule-based threat detection layer
+- Interactive dark-mode Streamlit UI
+
+Paste any email content into the app and instantly analyze whether it is legitimate, spam, or a phishing threat.
+
 ## 🚀 Overview
 
 The system uses a two-step detection mechanism:
+
 1. **Machine Learning Model:** Text is preprocessed (HTML tags removed, URLs tokenized) and transformed using a Vectorizer (TF-IDF). An Ensemble Voting Classifier (built using `scikit-learn`) then computes the probability of the email belonging to each class.
 2. **Heuristic Layer:** A rule-based scoring system scans for common spam signals (e.g., "free iphone", "act now") and phishing signals (e.g., "verify your account", "secure link"). If the heuristic score crosses a certain threshold, or if the ML model is uncertain but heuristics strongly suggest a threat, the prediction is upgraded to Spam or Phishing.
 
 ## 📂 Dataset Sources
+
 The model was trained on a diverse and comprehensive set of publicly available email corpora located in the `datasets/` directory:
+
 - **Enron Corpus** (`Enron.csv`): A massive collection of real-world corporate emails, primarily used as the baseline for Legitimate (Ham) emails.
 - **Nazario Phishing Corpus** (`Nazario.csv`): A specialized dataset containing verified, real-world phishing emails.
 - **SpamAssassin Public Corpus** (`SpamAssasin.csv`): A well-known mix of standard spam and ham emails.
@@ -31,6 +51,7 @@ The complete data exploration, preprocessing, model training, and evaluation pip
 - **Performance:** By combining datasets from different eras and domains, the model avoids overfitting to a specific type of spam and achieves high accuracy in distinguishing between benign marketing (spam) and malicious intent (phishing). The heuristic rules implemented in `app.py` further eliminate false negatives on zero-day phishing patterns.
 
 ## 🛠️ Tech Stack
+
 - **Python 3**
 - **scikit-learn** (Machine Learning & NLP pipelines)
 - **pandas & numpy** (Data manipulation)
@@ -39,7 +60,7 @@ The complete data exploration, preprocessing, model training, and evaluation pip
 ## 🏃‍♂️ How to Run Locally
 
 1. **Clone the repository.**
-2. **Install dependencies:** 
+2. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
