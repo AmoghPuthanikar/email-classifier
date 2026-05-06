@@ -1,0 +1,7 @@
+# Dependencies
+streamlit
+scikit-learn
+xgboost
+pandas
+numpy
+joblib
